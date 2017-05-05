@@ -273,18 +273,20 @@
             $("#laptop-info-section").css('visibility', 'hidden');
           }
         } else {
-          $("#laptop-info-section").add("#close-button").add(".mdc-toolbar__title").add("#info-dialog-activation").fadeToggle();
-          // if ($("#laptop-info-section").css('display') == 'none') {
-          //   $("#laptop-info-section").show();
-          //   $("#close-button").show();
-          // } else {
-          //   $("#laptop-info-section").show();
-          //   $("#close-button").hide();
-          // }
+          $("#laptop-info-section").fadeToggle();
+          if ($("#laptop-info-section").css('display') == 'none') {
+            $("#close-button").hide();
+            $(".mdc-toolbar__title").add("#info-dialog-activation").show();
+          } else {
+            $("#close-button").show();
+            $(".mdc-toolbar__title").add("#info-dialog-activation").hide();
+          }
         }
       });
       $("#close-button").click(function() {
-          $("#laptop-info-section").add("#close-button").add(".mdc-toolbar__title").add("#info-dialog-activation").fadeToggle();
+          $("#laptop-info-section").fadeToggle();
+          $("#close-button").hide();
+          $(".mdc-toolbar__title").add("#info-dialog-activation").show();
       });
     </script>
     <script>
