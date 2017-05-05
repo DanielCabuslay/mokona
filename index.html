@@ -23,13 +23,62 @@
       <header class="mdc-toolbar mdc-toolbar--fixed">
         <div class="mdc-toolbar__row">
           <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+            <a href="#" id="close-button" class="material-icons" aria-label="Close" alt="Close">arrow_back</a>
             <span class="mdc-toolbar__title">Laptops for You</span>
           </section>
           <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
-            <a href="#" class="material-icons" aria-label="Info" alt="Info">info</a>
+            <a href="#" id="info-dialog-activation" class="material-icons" aria-label="Info" alt="Info">info</a>
           </section>
         </div>
       </header>
+
+      <aside id="info-dialog"
+          style="visibility:hidden;"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-hidden="true"
+        aria-labelledby="mdc-dialog-default-label"
+        aria-describedby="mdc-dialog-default-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="mdc-dialog-default-label" class="mdc-dialog__header__title">
+              Information
+            </h2>
+          </header>
+          <section id="mdc-dialog-default-description" class="mdc-dialog__body">
+            All of the customized configurations are chosen by me based on what I believe will be sufficient for your needs. Prices do not include taxes and shipping costs.<br>
+            Laptops are in order of price; cheapest first.
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">OK</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+      </aside>
+
+      <aside id="vendor-dialog"
+          style="visibility:hidden;"
+        class="mdc-dialog"
+        role="alertdialog"
+        aria-hidden="true"
+        aria-labelledby="mdc-dialog-default-label"
+        aria-describedby="mdc-dialog-default-description">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 id="mdc-dialog-default-label" class="mdc-dialog__header__title">
+              Vendors
+            </h2>
+          </header>
+          <section id="mdc-dialog-default-description" class="mdc-dialog__body">
+            Purchase links go here.
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Close</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+      </aside>
+
       <div class="layout-grid">
         <div id="laptop-list-section" class="mdc-elevation--z2">
           <section class="scroll-section">
@@ -107,7 +156,7 @@
                     <span class="mdc-list-item__text__secondary">$1349.99</span>
                   </span>
                 </li>
-                <li class="mdc-list-item">
+                <li id="xps-13" class="mdc-list-item">
                   <span class="mdc-list-item__start-detail grey-bg" role="presentation">
                     <i class="material-icons" aria-hidden="true">laptop_windows</i>
                   </span>
@@ -166,7 +215,7 @@
             </div>
             <hr class="spec-card-divider">
             <div class="fab">
-              <button class="mdc-fab material-icons" aria-label="Favorite">
+              <button id="vendor-fab" class="mdc-fab material-icons" aria-label="Favorite">
                 <span class="mdc-fab__icon">
                   shopping_cart
                 </span>
@@ -215,6 +264,30 @@
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
+      $("#xps-13").click(function() {
+        // $('laptop-info-section').fadeToggle();
+        if ($(window).width() >= 599) {
+          if ($("#laptop-info-section").css('visibility') == 'hidden') {
+            $("#laptop-info-section").css('visibility', 'visible');
+          } else {
+            $("#laptop-info-section").css('visibility', 'hidden');
+          }
+        } else {
+          $("#laptop-info-section").add("#close-button").add(".mdc-toolbar__title").add("#info-dialog-activation").fadeToggle();
+          // if ($("#laptop-info-section").css('display') == 'none') {
+          //   $("#laptop-info-section").show();
+          //   $("#close-button").show();
+          // } else {
+          //   $("#laptop-info-section").show();
+          //   $("#close-button").hide();
+          // }
+        }
+      });
+      $("#close-button").click(function() {
+          $("#laptop-info-section").add("#close-button").add(".mdc-toolbar__title").add("#info-dialog-activation").fadeToggle();
+      });
+    </script>
+    <script>
         // Delay initialization within development until styles have loaded
         setTimeout(initInteractiveLists, 250);
         function initInteractiveLists() {
@@ -230,7 +303,7 @@
           }
         }
     </script>
-    <script type="text/javascript">
+    <script>
       (function() {
         var pollId = 0;
         pollId = setInterval(function() {
@@ -244,6 +317,28 @@
           var toolbar = mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'));
           toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust');
         }
+      })();
+    </script>
+    <script>
+      (function() {
+        var infoDialog = new mdc.dialog.MDCDialog(document.querySelector('#info-dialog'));
+        document.querySelector('#info-dialog-activation').addEventListener('click', function (evt) {
+          infoDialog.show();
+        });
+        var vendorDialog = new mdc.dialog.MDCDialog(document.querySelector('#vendor-dialog'));
+        document.querySelector('#vendor-fab').addEventListener('click', function (evt) {
+          vendorDialog.show();
+        });
+      })();
+    </script>
+    <script>
+      (function() {
+        mdc.dialog.MDCDialog.attachTo(document.querySelector('.mdc-dialog'));
+        // Hack to work around style-loader async loading styles
+        setTimeout(function() {
+          mdc.ripple.MDCRipple.attachTo(document.querySelector('#info-dialog-activation'));
+          mdc.ripple.MDCRipple.attachTo(document.querySelector('#vendor-fab'));
+        }, 200);
       })();
     </script>
   </body>

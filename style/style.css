@@ -16,8 +16,14 @@ main {
 a {
   text-decoration: none;
 }
+#close-button {
+  display: none;
+}
+.mdc-dialog {
+  z-index: 3;
+}
 .mdc-toolbar--fixed {
-  z-index: 10;
+  z-index: 2;
 }
 .mdc-toolbar__title {
   color: #000000;
@@ -41,7 +47,7 @@ a {
 #laptop-list-section {
   position: absolute;
   width: 33%;
-  z-index: 5;
+  z-index: 0;
 }
 .scroll-section {
   overflow-y: auto;
@@ -50,6 +56,9 @@ a {
 }
 #laptop-info-section {
   width: 67%;
+  visibility: hidden;
+  display: table-cell;
+  z-index: 1;
 }
 #banner {
   display: table;
@@ -102,4 +111,26 @@ a {
   position:fixed;
   bottom:1rem;
   right:1rem;
+}
+@media (max-width: 599px) {
+  /*#close-button {
+    padding-right:16px;
+  }*/
+  #laptop-list-section,#laptop-info-section {
+    height: calc(100vh - 56px);
+    width: 100vw;
+  }
+  #laptop-list-section {
+    display: block;
+  }
+  #laptop-info-section {
+    visibility: visible;
+    display: none;
+    position:absolute;
+  }
+  .fab {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+  }
 }
