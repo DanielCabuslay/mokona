@@ -1,0 +1,25 @@
+{
+  "short_name": "Laptops",
+  "name": "Laptops for You",
+  "icons": [
+    {
+      "src": "favicon-128.png",
+	  "type": "image/png",
+	  "sizes": "128x128"
+    },
+    {
+      "src": "favicon-144.png",
+	  "type": "image/png",
+	  "sizes": "144x144"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffeb3b",
+  "background_color": "#fafafa",
+  "start_url": "index.html",
+  "display": "standalone"
+}

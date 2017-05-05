@@ -1,0 +1,105 @@
+:root {
+  --mdc-theme-primary: #ffeb3b;
+  --mdc-theme-accent: #00e676;
+}
+html, body, main {
+  height:100vh;
+  width:100vw;
+  overflow:hidden;
+}
+body {
+  margin:0px;
+}
+main {
+  background-color: #eeeeee;
+}
+a {
+  text-decoration: none;
+}
+.mdc-toolbar--fixed {
+  z-index: 10;
+}
+.mdc-toolbar__title {
+  color: #000000;
+}
+.material-icons {
+  color:black;
+}
+.mdc-layout-grid {
+  height:100%;
+  padding:0px;
+}
+.layout-grid {
+  display: table;
+}
+#laptop-list-section,#laptop-info-section {
+  display:table-cell;
+  background-color: white;
+  vertical-align: top;
+  height: calc(100vh - 64px);
+}
+#laptop-list-section {
+  position: absolute;
+  width: 33%;
+  z-index: 5;
+}
+.scroll-section {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: inherit;
+}
+#laptop-info-section {
+  width: 67%;
+}
+#banner {
+  display: table;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+#banner-image {
+  display:table-cell;
+  width: 150px;
+}
+#banner-image > img {
+  height:150px;
+}
+#banner-title {
+  display: table-cell;
+  vertical-align: middle;
+  /*position:absolute;*/
+  /*bottom:0;*/
+  padding: 10px 15px;
+  /*color: white;*/
+}
+#banner-spacer {
+  display:table-cell;
+  width: 100%;
+}
+.fab {
+  position: absolute;
+  right: 3rem;
+  bottom: 2rem;
+}
+#specs, #specs-notes {
+  margin: 5px;
+}
+.specs-title {
+  display: inline-block;
+  width: 175px;
+}
+.specs-spec {
+  display: inline-flex;
+}
+.spec-row, .notes {
+  padding: 10px 20px;
+}
+.spec-card-divider {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 0px;
+}
+#fab {
+  position:fixed;
+  bottom:1rem;
+  right:1rem;
+}
