@@ -70,24 +70,33 @@ a {
   width: 150px;
 }
 #banner-image > img {
-  height:150px;
+  height:200px;
 }
 #banner-title {
   display: table-cell;
   vertical-align: middle;
-  /*position:absolute;*/
-  /*bottom:0;*/
   padding: 10px 15px;
-  /*color: white;*/
 }
 #banner-spacer {
   display:table-cell;
   width: 100%;
 }
 .fab {
-  position: absolute;
+  position: relative;
   right: 3rem;
   bottom: 2rem;
+  float:right;
+}
+#purchase-button {
+  display: table-cell;
+  vertical-align: bottom;
+  text-align: right;
+  width: 52px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+#vendor-button {
+  color: black;
 }
 #specs, #specs-notes {
   margin: 5px;
@@ -107,15 +116,53 @@ a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   margin: 0px;
 }
-#fab {
-  position:fixed;
-  bottom:1rem;
-  right:1rem;
+.store-table {
+  display: table;
+}
+.store-row {
+  display: table-row;
+  margin: 25px 90px;
+}
+.store-row-button, .store-row-price {
+  display: table-cell;
+}
+.store-row-price {
+  color: black;
+}
+.store-button {
+  padding: 40px 75px;
+  margin-right: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#vendor-dialog > .mdc-dialog__surface {
+  min-width: 280px;
+  max-width: 380px;
+}
+#vendor-dialog-body {
+  line-height: 120px;
 }
 @media (max-width: 599px) {
-  /*#close-button {
-    padding-right:16px;
-  }*/
+  #banner,#banner-image {
+    display: block;
+  }
+  #banner-image {
+    height: 65vw;
+    width: 100vw;
+    background-image: url(http://i.dell.com/das/xa.ashx/global-site-design%20WEB/8112e5f5-03c3-5aad-24a2-cbbc76a6fd18/1/OriginalPng?id=Dell/Product_Images/Dell_Client_Products/Notebooks/XPS_Notebooks/13_9630_Touch/global_spi/notebook-xps-13-9630-touch-front-front-usage-hero-504x350-ng.psd);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  #banner-image > img {
+    height: initial;
+    width:100vw;
+    visibility: hidden;
+  }
+  #banner-title {
+    padding-left: 20px;
+    width:100vw;
+  }
   #laptop-list-section,#laptop-info-section {
     height: calc(100vh - 56px);
     width: 100vw;
@@ -129,8 +176,10 @@ a {
     position:absolute;
   }
   .fab {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+    display: none;
+  }
+  #purchase-button {
+    vertical-align: middle;
+    padding-bottom: 0px;
   }
 }

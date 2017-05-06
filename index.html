@@ -66,11 +66,20 @@
         <div class="mdc-dialog__surface">
           <header class="mdc-dialog__header">
             <h2 id="mdc-dialog-default-label" class="mdc-dialog__header__title">
-              Vendors
+            Vendors        
             </h2>
           </header>
-          <section id="mdc-dialog-default-description" class="mdc-dialog__body">
-            Purchase links go here.
+          <section id="vendor-dialog-body" class="mdc-dialog__body">
+            <div class="store-table">
+              <div class="store-row">
+                <div class="store-row-button"><a class="store-button dell-store-button mdc-elevation--z2" href="http://www.dell.com/ca/p/xps-13-9360-laptop/pd?oc=nxps139360_bt_h5135e&model_id=xps-13-9360-laptop" target="_blank"></a></div>
+                <div class="store-row-price">$1,399.99</div>
+              </div>
+              <div class="store-row">
+                <div class="store-row-button"><a class="store-button bestbuy-store-button mdc-elevation--z2" href="http://www.bestbuy.ca/en-ca/product/dell-dell-xps-13-3-laptop-aluminum-silver-intel-core-i5-7200u-128gb-hdd-8gb-ram-windows-10-xps9360-4060slv/10567343.aspx?" target="_blank"></a></div>
+                <div class="store-row-price">$1,449.99</div>
+              </div>
+            </div>
           </section>
           <footer class="mdc-dialog__footer">
             <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Close</button>
@@ -211,16 +220,20 @@
               <div id="banner-image">
                 <img src="http://i.dell.com/das/xa.ashx/global-site-design%20WEB/8112e5f5-03c3-5aad-24a2-cbbc76a6fd18/1/OriginalPng?id=Dell/Product_Images/Dell_Client_Products/Notebooks/XPS_Notebooks/13_9630_Touch/global_spi/notebook-xps-13-9630-touch-front-front-usage-hero-504x350-ng.psd">
               </div>
-              <div id="banner-title" class="mdc-typography--display1">Dell XPS 13 (9360)</div>
+              <div id="banner-title" class="mdc-typography--title">Dell XPS 13 (9360)</div>
+              <div id="purchase-button">
+                <button id="vendor-button" class="mdc-button mdc-button--raised mdc-button--accent">
+                  Purchase
+                </button>
+              </div>
             </div>
             <hr class="spec-card-divider">
-            <div class="fab">
-              <button id="vendor-fab" class="mdc-fab material-icons" aria-label="Favorite">
-                <span class="mdc-fab__icon">
-                  shopping_cart
-                </span>
-              </button>
+            <div id="specs-notes">
+              <div class="notes mdc-typography--body1">
+                Popular laptop thanks to its design. Personally not a fan of the short keyboard travel, but reviewers seem to like it. Other configurations are listed <a target="_blank" href="http://www.dell.com/ca/p/xps-13-9360-laptop/pd?ref=PD_OC">here</a>, but I don't recommend going below 8 GB of RAM.
+              </div>
             </div>
+            <hr class="spec-card-divider">
             <div id="specs">
               <div class="spec-row">
                 <div class="specs-title mdc-typography--title">Specs</div>
@@ -244,16 +257,6 @@
               <div class="spec-row">
                 <div class="specs-title mdc-typography--body2">Storage</div>
                 <div class="specs-spec mdc-typography--body1">128 GB<br>SSD</div>
-              </div>
-            </div>
-            <hr class="spec-card-divider">
-            <div id="specs-notes">
-              <div class="spec-row">
-                <div class="specs-title mdc-typography--title">Notes</div>
-              </div>
-              <div class="notes mdc-typography--body1">
-                Popular laptop thanks to its design. Personally not a fan of the short keyboard travel, but reviewers seem to like it. Other configurations are listed <a target="_blank" href="http://www.dell.com/ca/p/xps-13-9360-laptop/pd?ref=PD_OC">here</a>, but I don't recommend going below 8 GB of RAM.<br>
-                Coupon code available from Dell for 10% off (for use on Dell's site only): 10%OFFXPS
               </div>
             </div>
           </section>
@@ -296,12 +299,15 @@
           var interactiveListItems = document.querySelectorAll(
             '[interactive-list] .mdc-list-item'
           );
-          for (var i = 0, li; li = interactiveListItems[i]; i++) {
-            mdc.ripple.MDCRipple.attachTo(li);
-            // Prevent link clicks from jumping demo to the top of the page
-            li.addEventListener('click', function(evt) {
-              evt.preventDefault();
-            });
+
+          if ($(window).width() >= 599) {
+            for (var i = 0, li; li = interactiveListItems[i]; i++) {
+              mdc.ripple.MDCRipple.attachTo(li);
+              // Prevent link clicks from jumping demo to the top of the page
+              li.addEventListener('click', function(evt) {
+                evt.preventDefault();
+              });
+            }
           }
         }
     </script>
@@ -328,7 +334,7 @@
           infoDialog.show();
         });
         var vendorDialog = new mdc.dialog.MDCDialog(document.querySelector('#vendor-dialog'));
-        document.querySelector('#vendor-fab').addEventListener('click', function (evt) {
+        document.querySelector('#vendor-button').addEventListener('click', function (evt) {
           vendorDialog.show();
         });
       })();
@@ -339,7 +345,7 @@
         // Hack to work around style-loader async loading styles
         setTimeout(function() {
           mdc.ripple.MDCRipple.attachTo(document.querySelector('#info-dialog-activation'));
-          mdc.ripple.MDCRipple.attachTo(document.querySelector('#vendor-fab'));
+          mdc.ripple.MDCRipple.attachTo(document.querySelector('#vendor-button'));
         }, 200);
       })();
     </script>
