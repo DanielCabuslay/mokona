@@ -1,9 +1,3 @@
-:root {
-  --mdc-theme-primary: #ffeb3b;
-  --mdc-theme-accent: #00e676;
-  --mdc-theme-text-primary-on-primary: #000;
-  --mdc-theme-text-primary-on-accent: #000;
-}
 html, body, main {
   height:100vh;
   width:100vw;
@@ -13,14 +7,13 @@ body {
   margin:0px;
 }
 main {
-  background-color: #eeeeee;
+  background-color: #eee;
 }
 a {
   text-decoration: none;
 }
 #close-button {
   display: none;
-  margin-right:16px;
 }
 #info-title {
   display: none;
@@ -81,6 +74,11 @@ a {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);  
   margin: 0px -16px;
+}
+#filter-fab {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
 }
 #laptop-info-section {
   width: 67%;
@@ -146,9 +144,11 @@ a {
 .store-row {
   display: table-row;
   margin: 25px 90px;
+  height: 80px;
 }
 .store-row-button, .store-row-price {
   display: table-cell;
+  vertical-align: middle;
 }
 .store-button {
   padding: 25px 75px;
@@ -158,10 +158,7 @@ a {
 }
 #vendor-dialog > .mdc-dialog__surface {
   min-width: 280px;
-  max-width: 380px;
-}
-#vendor-dialog-body {
-  line-height: 80px;
+  max-width: 394px;
 }
 @media (max-width: 599px) {
   #banner,#banner-image {
@@ -183,7 +180,6 @@ a {
     display: none;
   }
   #laptop-list-section,#laptop-info-section {
-    height: calc(100vh - 56px);
     width: 100vw;
   }
   #laptop-list-section {
@@ -203,5 +199,10 @@ a {
     vertical-align: middle;
     padding-right: 0px;
     padding-bottom: 15px;
+  }
+}
+@media (max-width: 959px) {
+  #laptop-list-section,#laptop-info-section {
+    height: calc(100vh - 56px);
   }
 }

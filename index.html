@@ -2,17 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Laptops for You</title>
+    <title>Laptop Recommendations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="/styles/theme.css">
     <link rel="stylesheet" href="style/store-buttons.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut_icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#ffeb3b">
+    <meta name="theme-color" content="#1976d2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,34 +24,30 @@
       <header class="mdc-toolbar mdc-toolbar--fixed">
         <div class="mdc-toolbar__row">
           <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-            <a href="#" id="close-button" class="material-icons" aria-label="Close" alt="Close">arrow_back</a>
-            <span id="list-title" class="mdc-toolbar__title">Laptops for You</span>
-            <span id="info-title" class="mdc-toolbar__title">Dell XPS 13 (9360)</span>
+            <i id="close-button" class="material-icons mdc-toolbar__icon--menu" aria-label="Close" alt="Close">arrow_back</i>
+            <span id="list-title" class="mdc-toolbar__title">Laptop Recommendations</span>
+            <span id="info-title" class="mdc-toolbar__title"></span>
           </section>
           <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
-            <a href="#" id="info-dialog-activation" class="material-icons" aria-label="Info" alt="Info">info</a>
+            <!-- <i id="filter-button" class="material-icons toolbar-buttons" aria-label="Filter" alt="Filter">filter_list</i> -->
+            <a id="info-dialog-activation" class="material-icons mdc-toolbar__icon toolbar-buttons" aria-label="Info" alt="Info">info</a>
           </section>
         </div>
       </header>
 
-      <aside id="info-dialog"
-          style="visibility:hidden;"
-        class="mdc-dialog"
-        role="alertdialog"
-        aria-hidden="true"
-        aria-labelledby="mdc-dialog-default-label"
-        aria-describedby="mdc-dialog-default-description">
+      <aside id="info-dialog" class="mdc-dialog" role="alertdialog">
         <div class="mdc-dialog__surface">
           <header class="mdc-dialog__header">
-            <h2 id="mdc-dialog-default-label" class="mdc-dialog__header__title">
+            <h2 class="mdc-dialog__header__title">
               Information
             </h2>
           </header>
           <section id="mdc-dialog-default-description" class="mdc-dialog__body">
-            All of the customized configurations are chosen by me based on what I believe will be sufficient for your needs. Prices do not include taxes and shipping costs.<br>
-            Laptops are in order of price; cheapest first.<br><br>
+            All of the customized configurations are chosen by me based on what I believe will be sufficient for daily usage. Prices do not include taxes and shipping costs.<br>
+            Laptops are in order of price; cheapest first.<br>
+            Password to access Lenovo discount portal: FNDEPP<br><br>
             <div class="mdc-typography--caption">*Indicates that price was discounted</div>
-            <div class="mdc-typography--caption">Last updated: May 6, 2017</div>
+            <div class="mdc-typography--caption">Last updated: September 10, 2017</div>
           </section>
           <footer class="mdc-dialog__footer">
             <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">OK</button>
@@ -59,16 +56,10 @@
         <div class="mdc-dialog__backdrop"></div>
       </aside>
 
-      <aside id="vendor-dialog"
-          style="visibility:hidden;"
-        class="mdc-dialog"
-        role="alertdialog"
-        aria-hidden="true"
-        aria-labelledby="mdc-dialog-default-label"
-        aria-describedby="mdc-dialog-default-description">
+      <aside id="vendor-dialog" class="mdc-dialog" role="alertdialog">
         <div class="mdc-dialog__surface">
           <header class="mdc-dialog__header">
-            <h2 id="mdc-dialog-default-label" class="mdc-dialog__header__title">
+            <h2 class="mdc-dialog__header__title">
             Store Listings        
             </h2>
           </header>
@@ -84,6 +75,24 @@
         <div class="mdc-dialog__backdrop"></div>
       </aside>
 
+      <aside id="filter-dialog" class="mdc-dialog" role="alertdialog">
+        <div class="mdc-dialog__surface">
+          <header class="mdc-dialog__header">
+            <h2 class="mdc-dialog__header__title">
+              Filter
+            </h2>
+          </header>
+          <section id="mdc-dialog-with-list-description" class="mdc-dialog__body mdc-dialog__body--scrollable">
+
+          </section>
+          <footer class="mdc-dialog__footer">
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Close</button>
+            <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Filter</button>
+          </footer>
+        </div>
+        <div class="mdc-dialog__backdrop"></div>
+      </aside>
+
       <div class="layout-grid">
         <div id="laptop-list-section" class="mdc-elevation--z2">
           <section class="scroll-section">
@@ -91,6 +100,11 @@
               <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list" interactive-list>
                 <!-- list created dynamically through JS -->
               </ul>
+              <!-- <div id="filter-fab">
+                <button id="filter-button" class="mdc-fab material-icons" aria-label="Favorite">
+                  <span class="mdc-fab__icon">filter_list</span>
+                </button>
+              </div> -->
             </div>
           </section>
         </div>
@@ -100,7 +114,7 @@
               <div id="banner-image">
                 <img crossorigin="Anonymous">
               </div>
-              <div id="banner-title" class="mdc-typography--title"></div>
+              <div id="banner-title" class="mdc-typography--display1"></div>
               <div id="purchase-button">
                 <button id="vendor-button" class="mdc-button mdc-button--raised mdc-button--accent">
                   Store Listings
@@ -158,7 +172,7 @@
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="scripts/Vibrant.min.js"></script>
+    <!-- <script src="scripts/Vibrant.min.js"></script> -->
     <script src="scripts/json-parser.js"></script>
     <script src="scripts/list-creator.js"></script>
     <script src="scripts/info-section-creator.js"></script>
@@ -207,6 +221,10 @@
         document.querySelector('#vendor-button').addEventListener('click', function (evt) {
           vendorDialog.show();
         });
+        // var filterDialog = new mdc.dialog.MDCDialog(document.querySelector('#filter-dialog'));
+        // document.querySelector('#filter-button').addEventListener('click', function (evt) {
+        //   filterDialog.show();
+        // });
       })();
     </script>
     <script>
@@ -216,6 +234,7 @@
         setTimeout(function() {
           mdc.ripple.MDCRipple.attachTo(document.querySelector('#info-dialog-activation'));
           mdc.ripple.MDCRipple.attachTo(document.querySelector('#vendor-button'));
+          // mdc.ripple.MDCRipple.attachTo(document.querySelector('#filter-button'));
         }, 200);
       })();
     </script>

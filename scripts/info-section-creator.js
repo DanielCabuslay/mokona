@@ -15,6 +15,8 @@ function createInfoSection(id, id_data) {
 	var operatingSystem;
 	if (id_data['os'] == 'w10') {
 		operatingSystem = 'Windows 10';
+	} else if (id_data['os'] == 'w10ch') {
+		operatingSystem = 'Windows 10 (Chinese)';
 	} else if (id_data['os'] == 'chrome') {
 		operatingSystem = 'Chrome OS';
 	} else if (id_data['os'] == 'macsierra') {
@@ -114,9 +116,13 @@ function createInfoSection(id, id_data) {
 
 				var priceString = id_data[jsonPrice];
 				if (id_data[jsonSale] != null) {
-					// priceString += '(save ' + id_data[jsonSale] + ')'
-					priceString += '*';
-				}
+					priceString += ' (save ' + id_data[jsonSale];
+					// priceString += '*';
+					if (id_data[jsonCoupon] != null) {
+						priceString += ' with coupon code ' + id_data[jsonCoupon];
+					}
+					priceString += ')';
+				} 
 				var priceNode = document.createTextNode(priceString);
 				priceRowDiv.appendChild(priceNode);
 				storeRowDiv.appendChild(priceRowDiv);

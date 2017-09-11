@@ -1,3 +1,7 @@
+.acer-store-button {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/300px-Acer_2011.svg.png);
+  background-size: 120px;
+}
 .amazon-store-button {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Amazon_logo_plain.svg/602px-Amazon_logo_plain.svg.png);
   background-size: 120px;
@@ -8,7 +12,7 @@
 }
 .bestbuy-store-button {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Best_Buy_Logo.svg/300px-Best_Buy_Logo.svg.png);
-  background-size: 120px;
+  background-size: 80px;
 }
 .dell-store-button {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg);
@@ -26,9 +30,17 @@
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/512px-Microsoft_logo_%282012%29.svg.png);
   background-size: 130px;
 }
+.nis-store-button {
+  background-image: url(https://nis-store.com/images/logo-new.png);
+}
 .newegg-store-button {
   background-image: url(https://upload.wikimedia.org/wikipedia/en/0/00/Newegg_Logo_updated.png);
   background-size: 130px;
+}
+.razer-store-button {
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Razer_Snake_Logo.svg/283px-Razer_Snake_Logo.svg.png);
+  background-size: 55px;
+  background-color: black;
 }
 .thesource-store-button {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/The_Source_logo_en-fr.svg/665px-The_Source_logo_en-fr.svg.png);
@@ -37,5 +49,5 @@
 .tigerdirect-store-button {
   background-image: url(https://cdn-us-cf2.yottaa.net/56abbcda312e584188000013/2158b360df540134a2f70a3ba3fac80a.yottaa.net/v~13.39/99/masthead/masthead-logo-ca.png?yocs=e_&yoloc=us);
   background-size: 130px;
-  background-color: #267ab7;
+  background-color: #005cb9;
 }

@@ -15,6 +15,7 @@ function showInfoSection() {
 		$("#laptop-info-section").css('visibility', 'visible');	
 	} else {
 		$("#laptop-info-section").fadeToggle(200);
+		$("#laptop-info-section").scrollTop(0);
     	$("#close-button").add('#info-title').add('.mdc-toolbar__section--align-end').show();
     	$("#list-title").add("#info-dialog-activation").hide();
   	}        
@@ -50,7 +51,7 @@ $(document).ready(function() {
  			if (clicked != lastClicked) {
 				lastClicked = clicked;
 				createInfoSection(ids[index], id_data[index]);
- 			}                 
+ 			}
       });
       	$("#close-button").click(function() {
           	$("#laptop-info-section").fadeToggle(200);
