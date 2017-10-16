@@ -21,6 +21,9 @@ a {
 .mdc-dialog {
   z-index: 3;
 }
+.mdc-dialog__footer__button {
+  color: var(--mdc-theme-text-primary-on-primary)!important;
+}
 .mdc-toolbar {
   transition: background-color 150ms linear;
 }
@@ -29,6 +32,9 @@ a {
 }
 .mdc-toolbar__section--align-end {
   max-width: 24px;
+}
+.mdc-toolbar__menu-icon+.mdc-toolbar__title {
+  margin-left: 24px;
 }
 .material-icons {
   color:var(--mdc-theme-text-primary-on-primary);
@@ -60,6 +66,9 @@ a {
   width: 100px;
   height: inherit;
   border-radius: 0%;
+}
+.mdc-list-item {
+  cursor: pointer;
 }
 .mdc-list-item__start-detail {
   text-align: center;
