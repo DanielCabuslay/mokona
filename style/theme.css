@@ -1,9 +1,14 @@
 :root {
-  --mdc-theme-primary: #ffeb3b;
-  --mdc-theme-primary-light: #ffff72;
-  --mdc-theme-primary-dark: #c8b900;
-  --mdc-theme-secondary: #00c853;
-  --mdc-theme-secondary-light: #5efc82;
-  --mdc-theme-secondary-dark: #009624;
+  --mdc-theme-primary: #fafafa;
+  --mdc-theme-primary-light: #ffffff;
+  --mdc-theme-primary-dark: #c7c7c7;
+  --mdc-theme-secondary: #2979ff;
+  --mdc-theme-secondary-light: #75a7ff;
+  --mdc-theme-secondary-dark: #004ecb;
   --mdc-theme-text-primary-on-primary: #000;
+}
+
+.mdc-button--raised:not(:disabled), .mdc-button--unelevated:not(:disabled) {
+	background-color: var(--mdc-theme-secondary);
+	color: #fff;
 }

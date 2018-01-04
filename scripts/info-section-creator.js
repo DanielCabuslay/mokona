@@ -1,10 +1,11 @@
 function createInfoSection(id, id_data) {
 	var image = 'images/' + id + '.png';
-    if ($(window).width() > 599) {
-		$('#banner-image > img').prop('src', image);
-	} else {
-		$('#banner-image').css('background-image', 'url(' + image + ')');
-	}
+	$('#banner-image > img').prop('src', image);
+ //    if ($(window).width() > 959) {
+	// 	$('#banner-image > img').prop('src', image);
+	// } else {
+	// 	$('#banner-image').css('background-image', 'url(' + image + ')');
+	// }
 
 	$('#banner-title').text(id_data['name']);
 	$('#info-title').text(id_data['name']);
@@ -55,7 +56,11 @@ function createInfoSection(id, id_data) {
 	if (id_data['storage_speed'] != null) {
 		storageSpeed = id_data['storage_speed'] + '<br>';
 	}
-	$('#storage > .specs-spec').html(id_data['storage'] + ' GB<br>' + storageSpeed +  id_data['storage_type']);
+	if (id_data['storage'] == 1024) {
+		$('#storage > .specs-spec').html('1 TB<br>' + storageSpeed +  id_data['storage_type']);
+	} else {
+		$('#storage > .specs-spec').html(id_data['storage'] + ' GB<br>' + storageSpeed +  id_data['storage_type']);
+	}
 
 	//battery
 	var wHr = '';

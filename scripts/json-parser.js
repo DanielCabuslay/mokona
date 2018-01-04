@@ -11,11 +11,11 @@ function fetchRecommendations(callback) {
 }
 
 function showInfoSection() {
-	if ($(window).width() > 599) {
+	if ($(window).width() > 959) {
 		$("#laptop-info-section").css('visibility', 'visible');	
 	} else {
 		$("#laptop-info-section").fadeToggle(200);
-		$("#laptop-info-section").scrollTop(0);
+		$("#info-section").delay(200).scrollTop(0);
     	$("#close-button").add('#info-title').add('.mdc-toolbar__section--align-end').show();
     	$("#list-title").add("#info-dialog-activation").hide();
   	}        

@@ -63,7 +63,7 @@ a {
   height: inherit;
 }
 .mdc-list--avatar-list .mdc-list-item__start-detail {
-  width: 100px;
+  min-width: 100px;
   height: inherit;
   border-radius: 0%;
 }
@@ -98,14 +98,15 @@ a {
 #banner {
   display: table;
   width: 100%;
-  background-color: #f7f7f7;
 }
 #banner-image {
   display:table-cell;
   width: 150px;
 }
 #banner-image > img {
-  height:200px;
+  height: 200px;
+  width: 250px;
+  object-fit: contain;
 }
 #banner-title {
   display: table-cell;
@@ -128,6 +129,9 @@ a {
   text-align: right;
   padding-right: 20px;
   padding-bottom: 20px;
+}
+#vendor-button {
+  min-width: 150px;
 }
 #specs, #specs-notes {
   margin: 5px;
@@ -169,21 +173,20 @@ a {
   min-width: 280px;
   max-width: 394px;
 }
-@media (max-width: 599px) {
+@media (max-width: 959px) {
   #banner,#banner-image {
     display: block;
   }
   #banner-image {
-    height: 65vw;
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
   #banner-image > img {
-    height: initial;
-    width:100vw;
-    visibility: hidden;
+    height: 40vh;
+    width: 100vw;
+    object-fit: cover;
   }
   #banner-title {
     display: none;
