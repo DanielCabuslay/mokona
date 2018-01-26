@@ -63,9 +63,10 @@ a {
   height: inherit;
 }
 .mdc-list--avatar-list .mdc-list-item__start-detail {
-  min-width: 100px;
+  width: 100px;
   height: inherit;
   border-radius: 0%;
+  margin-right: 16px;
 }
 .mdc-list-item {
   cursor: pointer;
@@ -73,10 +74,8 @@ a {
 .mdc-list-item__start-detail {
   text-align: center;
 }
-.mdc-list-item__start-detail > i, .mdc-list-item__start-detail > img {
-}
 .mdc-list-item__start-detail > img {
-  width: 100%;
+  width: inherit;
   vertical-align: middle;
 }
 .laptop-list-divider {
